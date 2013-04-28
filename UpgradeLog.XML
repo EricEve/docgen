@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="DocGen">
+</Property><Property Name="Solution File" Value="C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\DocGen.sln">
+</Property><Property Name="Date" Value="27 April 2013">
+</Property><Property Name="Time" Value="11:51:18">
+</Property></Properties><Event ErrorLevel="0" Project="DocGen" Source="DocGen.csproj" Description="Project file successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\DocGen.csproj">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="DocGen.csproj.user" Description="Project user file successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\DocGen.csproj.user">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="AssemblyInfo.cs" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="HtmlGenerator.cs" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\HtmlGenerator.cs">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="main.cs" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\main.cs">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="Parser.cs" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\Parser.cs">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="Preprocessor.cs" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\Preprocessor.cs">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="SourceFile.cs" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\SourceFile.cs">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="SymbolTable.cs" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\SymbolTable.cs">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="App.ico" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="Intro.html" Description="File successfully backed up as C:\Users\Eric\Documents\Visual Studio 2010\Projects\docgen\Backup\Intro.html">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="DocGen.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DocGen" Source="DocGen.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DocGen" Source="DocGen.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
