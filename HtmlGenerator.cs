@@ -33,6 +33,7 @@ namespace DocGen
         const String ObjectDir = "object";
         const String IndexDir = "index";
         const String SourceDir = "source";
+        const String MessageDir = "message";
 
         const String IntroFile = "Intro.html";
         const String FileIndexFile = "FileIndex.html";
@@ -45,6 +46,8 @@ namespace DocGen
         const String TemplateIndexFile = "TemplateIndex.html";
         const String FunctionIndexFile = "FunctionIndex.html";
         const String SymbolTOCfile = "TOC.html";
+        const String MessageIndexFile = "MessageIndex.html";
+        const String MessageFile = "Message.html";
 
         private String OutputDir;
 
@@ -125,6 +128,8 @@ namespace DocGen
             return SourceDir + "/" + s.ShortName + ".html";
         }
 
+               
+
         //=====================================================================
         /// <summary>
         /// Writes everything to the given directory.
@@ -138,6 +143,7 @@ namespace DocGen
             Directory.CreateDirectory(this.OutputDir + SourceDir);
             Directory.CreateDirectory(this.OutputDir + ObjectDir);
             Directory.CreateDirectory(this.OutputDir + IndexDir);
+            Directory.CreateDirectory(this.OutputDir + MessageDir);
         
 
             foreach (ClassDef c in this.SymbolTable.Classes)
@@ -190,6 +196,8 @@ namespace DocGen
 //          this.WriteSymbolIndex(symbols);
             this.WriteSymbolIndexes(symbols);
             this.WriteSymbolIndexTOC();
+            this.WriteMessageIndex();
+            this.WriteMessageFile();
 
             this.CopySourceFiles();
         }
@@ -253,6 +261,8 @@ namespace DocGen
                                            "<i>Enums</i>"));
             w.WriteLine("<td>" + Hyperlink(TemplateIndexFile,  "classes",
                                            "<i>Templates</i>"));
+            w.WriteLine("<td>" + Hyperlink(MessageIndexFile, "classes",
+                                          "<i>Messages</i>"));
             w.WriteLine("<td>" + Hyperlink(IndexDir + "/" + SymbolTOCfile,
                                            "classes",  "<i>all symbols</i>"));
 
@@ -494,6 +504,56 @@ namespace DocGen
                                       "main", "<code>" + f.Name + "</code>")
                             + "<br>");
             w.WriteLine("</body></html>");
+            w.Close();
+        }
+        
+        //====================================================================
+        /// <summary>
+        /// Writes the index of all Messages
+        /// </summary>
+        public void WriteMessageIndex()
+        {
+            StreamWriter w = new StreamWriter(this.OutputDir + MessageIndexFile);
+            w.WriteLine("<html><head>"
+                       + "<link rel=stylesheet type=\"text/css\" "
+                       + "href=\"libref.css\">"
+                       + "<title>Adv3Lite: Index of Messages</title>"
+                       + "</head><body>"
+                       + "<h2>Messages</h2>");
+
+            String MessFile = MessageDir + '/' + MessageFile;
+
+            foreach(Message m in this.SymbolTable.Messages)
+                w.WriteLine(Hyperlink(MessFile, m.Name, "main", m.Name) + "<br>");
+
+
+            w.WriteLine("</body></html>");
+            w.Close();
+        }
+
+        public void WriteMessageFile()
+        {
+            System.Console.Out.WriteLine("writing " + MessageFile);
+            StreamWriter w = new StreamWriter(this.OutputDir + MessageDir + '/' + MessageFile);
+            w.WriteLine("<html><head>"
+                      + "<link rel=stylesheet type=\"text/css\" "
+                      + "href=\"libref.css\">"
+                      + "<title>Adv3Lite: Messages</title>"
+                      + "</head><body>"
+                      + "<h2>Messages</h2>");
+
+            w.WriteLine("<table class=decl>");
+
+            foreach (Message m in this.SymbolTable.Messages)
+            {
+                w.WriteLine("<tr><td><a name=\"" + m.Name + "\"><code>" + m.type + "</a>(" + m.Name + ", " + m.text + "</code></td>");
+                w.Write("<td></td><td></td><td align=right><code>" + FileLinks(m.Source)
+                        + "</code></td></tr><tr></tr><tr></tr>");
+            }
+
+            w.WriteLine("</table><p>");
+
+            this.WriteHtmlFooter(w);
             w.Close();
         }
 

@@ -241,6 +241,12 @@ namespace DocGen
                 line = line.Substring(1);
             }
 
+            // look for DMsg and BMsg definitions
+
+            if ((line.Contains("BMsg(") || line.Contains("DMsg(")) && !CurrentFileName.Contains(".h"))
+                ProcessMessage(line);
+
+
             String token1 = GetNextToken(ref line);
 
             // skip "transient"
@@ -625,6 +631,61 @@ namespace DocGen
 
             //    }
             //}
+        }
+
+        //====================================================================
+        /// <summary>
+        /// Extracts a DMsg() or BMsg() definition from a line and processes the result
+        /// </summary>
+        /// <param name="line"></param>
+        private void ProcessMessage(String line)
+        {
+            String tok;
+            String messName = "";
+            String messType;
+            String messText = "";
+
+            Message mes = new Message(Path.GetFileName(CurrentFileName), LineNumber);
+
+            tok = GetNextToken(ref line);
+            while (tok != "BMsg" && tok != "DMsg")
+            {
+                tok = GetNextToken(ref line);
+            }
+
+            messType = tok;
+           
+
+            GetNextToken(ref line);
+            do
+            {
+                tok = GetNextToken(ref line);
+                if (tok == ",")
+                    break;
+                else
+                    messName += (tok + " ");
+            } while (tok != ",");
+
+            messText = line.Trim();
+            mes.Name = messName.Trim();            
+            mes.type = messType;
+
+            
+
+            while (!line.Contains(")"))
+            {
+                line = GetNextLine();
+                messText += (" " + line);
+            }
+
+            /* Replace common HTML entities */
+            messText = messText.Replace("&", "&amp;");
+            messText = messText.Replace(">", "&gt;");
+            messText = messText.Replace("<", "&lt;");
+
+            mes.text = messText;
+            SymbolTable.Messages.Add(mes);
+            
         }
 
         //=====================================================================

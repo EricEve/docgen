@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DocGen" version="1.0.4866.23077" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DocGen" version="1.0.4879.18571" language="neutral" processorArchitecture="msil" />
     <commandLine file="DocGen.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DocGen.exe" size="77824">
-      <assemblyIdentity name="DocGen" version="1.0.4866.23077" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DocGen" version="1.0.4879.18571" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>fa0MTqLacaOnW9Qpj2ie8mU1ctg=</dsig:DigestValue>
+        <dsig:DigestValue>4F4o0BrHwGPhLWFFlrCQf6zu8wc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

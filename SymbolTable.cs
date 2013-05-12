@@ -79,6 +79,11 @@ namespace DocGen
         /// </summary>
         public ArrayList ObjectFileNames = new ArrayList();
 
+        /// <summary>
+        /// All the messages (BMsg and DMsg) extracted from the source files
+        /// </summary>
+        public ArrayList Messages = new ArrayList();
+
         //=====================================================================
         /// <summary>
         /// Constructor
@@ -162,6 +167,7 @@ namespace DocGen
             this.GlobalFunctions.Sort();
             this.GlobalObjects.Sort();
             this.GrammarProds.Sort();
+            this.Messages.Sort();
 
             foreach (Modification mod in this.Modifications)
             {
@@ -408,6 +414,23 @@ namespace DocGen
             sw.WriteLine("symbol " + this.Name + " // " + this.Description);
         }
     }
+
+    //########################################################################
+    /// <summary>
+    /// For storing information about DMsg and BMsg message declarations
+    /// </summary>
+
+    public class Message : Symbol
+    {
+        public String type;
+        public String text;
+
+        public Message(String file, int line)
+            : base(file, line)
+        {
+        }
+    }
+        
 
     //#########################################################################
     /// <summary>
