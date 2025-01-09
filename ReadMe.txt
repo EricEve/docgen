@@ -141,3 +141,19 @@ Revision History
 	stuff into directories. 
 
 8 June 2003 - first version posted. 
+
+ERIC EVE notes:
+
+I've defined a couple of batch files for generating the adv3Lite Library Reference Manual.
+
+The first, docgena.bat generates the LRM for the adv3Lite library excluding its extentions:
+
+docgen adv3Lite\*.h adv3Lite\*.t adv3Lite\english\*.t "c:\program files (x86)\tads 3\include\*.h" "c:\program files (x86)\tads 3\lib\*.t" -i intro.html -v %1 -o adv3LiteLibRef
+
+The second, docgene.bat (which is the one I now use), generates the LRM for the adv3Lite library excluding its extentions:
+
+docgen adv3Lite\*.h adv3Lite\*.t adv3Lite\english\*.t adv3lite\extensions\*.t "c:\program files (x86)\tads 3\include\*.h" "c:\program files (x86)\tads 3\lib\*.t" -i intro.html -v %1 -o adv3LiteLibRef
+
+These are intended to be enetered as `docgnena vn` or `docgene vn`, where vn is the versoin number; e.g. 'docgene 2.2`
+
+These batch files live in my ...\extensions directory which contains my adv3Lite directory. Other uses woudld need to adapt these batch files to match their own directory layout.
